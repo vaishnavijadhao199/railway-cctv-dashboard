@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b26;
+  --bg-tertiary: #1a1f2e;
+  --text-primary: #e6edf3;
+  --text-secondary: #8b949e;
+  --accent-cyan: #00f5ff;
+  --accent-green: #00ff88;
+  --border-color: #21262d;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #484f58;
+}
+
+/* Glowing effects */
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
+}
+
+.glow-green {
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+}
+
+.glow-red {
+  box-shadow: 0 0 20px rgba(255, 51, 102, 0.3);
+}
+
+/* Card styles */
+.card {
+  @apply bg-surface-100 border border-surface-50 rounded-lg;
+}
+
+.card-header {
+  @apply px-4 py-3 border-b border-surface-50 flex items-center justify-between;
+}
+
+/* Status indicators */
+.status-dot {
+  @apply w-2 h-2 rounded-full;
+}
+
+.status-online {
+  @apply bg-accent-green;
+  box-shadow: 0 0 8px rgba(0, 255, 136, 0.6);
+}
+
+.status-offline {
+  @apply bg-accent-red;
+  box-shadow: 0 0 8px rgba(255, 51, 102, 0.6);
+}
+
+.status-warning {
+  @apply bg-accent-orange;
+  box-shadow: 0 0 8px rgba(255, 136, 0, 0.6);
+}
+
+/* Grid patterns */
+.grid-pattern {
+  background-image: 
+    linear-gradient(rgba(0, 245, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 245, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Scan line animation */
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+  animation: scan 3s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes scan {
+  0% { top: 0; opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { top: 100%; opacity: 0; }
+}
